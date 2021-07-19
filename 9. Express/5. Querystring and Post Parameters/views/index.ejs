@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <form method="POST" action="/person">
+        First Name: <input type="text" id="firstname" name="firstname">
+        Last Name: <input type="text" id="lastname" name="lastname">
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        (async () => {
+        await fetch('/personjson', {
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({firstname: 'Jane', lastname: 'Doe'})
+        });
+        })();
+    </script>
+</body>
+</html>
